@@ -13,7 +13,12 @@
     
     <h1>This is Contact page</h1>
     <h3>u can text me on my intagram</h3>
-    <h4><a href="/instagram" targer="_blank">This is my inst</a></h4>
+    <h4>
+        <a href="/instagram" targer="_blank">This is my inst</a>
+    </h4>
+    <h4>
+        <a href="https://www.youtube.com">youtube</a>
+    </h4>
 
 </body>
 </html>
