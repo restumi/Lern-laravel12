@@ -1,11 +1,20 @@
 <x-layout>
+    <x-slot:headTitle>Blog</x-slot:headTitle>
     <x-slot:title>{{ $title }}</x-slot:title>
-    <article class="text-center pb-5">
-        <h3 class="pb-3 font-bold">judul 1</h3>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos sequi ut incidunt consectetur facilis! Voluptate cum fugit iste facere perspiciatis molestias iure nesciunt. Vel laborum dolores dolor veniam, odit est iusto sed dolore vero rem velit provident asperiores harum placeat dignissimos officia eius labore aliquid omnis temporibus obcaecati amet quisquam.</p>
+    
+    @foreach ($posts as $post)
+    <article class="py-8 max-w-screen-md border-b border-gray-300">
+        <a href="/blog/{{ $post['id'] }}">
+            <h2 class="mb-1 text-3xl tracking-tight font-bold text-gray-900">{{ $post['title'] }}</h2>
+        </a>
+
+        <div class="text-base text-gray-500">
+            <a href="#">{{ $post['author'] }}</a> | {{ $post['date'] }}
+        </div>
+
+        <p class="my-4 font-light">{{ Str::limit($post['body'], 100) }}</p>
+
+        <a href="/blog/{{ $post['id'] }}" class="font-medium text-blue-500 hover:underline">Read more &raquo</a>
     </article>
-    <article class="text-center">
-        <h3 class="pb-3 font-bold">judul 2</h3>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos sequi ut incidunt consectetur facilis! Voluptate cum fugit iste facere perspiciatis molestias iure nesciunt. Vel laborum dolores dolor veniam, odit est iusto sed dolore vero rem velit provident asperiores harum placeat dignissimos officia eius labore aliquid omnis temporibus obcaecati amet quisquam.</p>
-    </article>
+    @endforeach
 </x-layout>
